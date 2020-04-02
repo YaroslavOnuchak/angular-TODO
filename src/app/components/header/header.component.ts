@@ -7,11 +7,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   @Input() title: string;
-  @Input() data: string;
+ 
+  @Input() subName: string;
 
 
   // title = 'Angular TODO';
-  subname = 'Education' + '123'
+
   isLoginet = false;
   bgColor = 'red'
 
