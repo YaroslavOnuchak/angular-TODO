@@ -1,4 +1,14 @@
-<header>
-  <h1>Angular</h1>
-  <p>sub title</p>
+<header [ngClass]="{
+  'second':isLoginet,
+  'first': false,
+  'three': true
+}">
+  <h1 [class.secondP]='isLoginet'>{{title}}</h1>
+  <p [innerHTML]='subname'></p>
+  <button (click)='logIn($event)' [disabled]='false' [ngStyle]="{
+    'font-weight':'bold',
+    'background':bgColor,
+    'outline': 'none',
+   'border':'1px solid #000'
+  }"> log in</button>
 </header>
