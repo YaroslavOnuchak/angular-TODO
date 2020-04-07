@@ -1,12 +1,15 @@
-<app-header
-[title]="'Angular '+ headerT"
-[subName]="subname" 
-(testOutput)="testOutputApp($event)">
+<app-header [title]="'Angular '+ headerT" [subName]="subname" (testOutput)="testOutputApp($event)">
 </app-header>
 
 <app-todos></app-todos>
 
+<form sameName='ngForm'>
+  <input name="userName" [(ngModel)]="title" #userName='ngModel' />
+  <button (click)="save()">save</button>
+  <pre>{{userName.value}}</pre>
+
+</form>
+
 <app-footer>
   <h2>footer</h2>
-  <p>sub footer text</p>
 </app-footer>

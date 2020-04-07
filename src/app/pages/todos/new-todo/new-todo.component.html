@@ -1,0 +1,27 @@
+<div class="app-new-todo">
+  <form [formGroup]='newTodoForm'>
+    <div>
+      <input type="text" placeholder="Todo title" class="form-control" formControlName='title'>
+    </div>
+    <div *ngIf="isSubmit && newTodoForm.get('title').invalid" class="text-danger">
+      <span *ngIf="newTodoForm.get('title').errors.required">Input is required</span>
+      <span *ngIf="newTodoForm.controls['title'].errors.minlength">Input min length 3</span>
+    </div>
+    <!-- <div *ngIf="newTodoForm.get('title').invalid &&
+    (newTodoForm.get('title').dirty || newTodoForm.get('title').touched )">
+    <span *ngIf="newTodoForm.get('title').errors.required">Input is required</span>
+    <span *ngIf="newTodoForm.get('title').errors.minlength">Input min length 3</span>
+</div> -->
+    <div>
+      <textarea cols="30" rows="3" type="text" placeholder="Todo Description" class="form-control"
+        formControlName='description'></textarea>
+
+    </div>
+    <!-- <footer>
+      <button class="btn btn-primary" (click)=' onSubmit()' [disabled]='newTodoForm.invalid'>save</button>
+    </footer> -->
+    <footer>
+      <button class="btn btn-primary" (click)=' onSubmit()'>save</button>
+    </footer>
+  </form>
+</div>

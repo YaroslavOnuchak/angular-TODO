@@ -1,19 +1,26 @@
-<li >
-    <h5 [class.is-done]='todo.isDone'>
-      {{todo.title}}
-    </h5>
-    <div>
+<li>
+  <h5 [class.is-done]='todo.isDone'>
+    {{todo.title}}
+  </h5>
+  <div>
 
-      <span class="material-icons">
-        {{(todo.isDone)? 'check_box' : 'check_box_outline_blank'}}
-      </span>
-    </div>
-    <div>
-      <button>show/hide detalis</button>
-      <button>del</button>
-    </div>
-    <div>
+    <span class="material-icons">
+      {{(todo.isDone)? 'check_box' : 'check_box_outline_blank'}}
+    </span>
+  </div>
+  <div>
+    <button [disabled]='!todo.description' (click)='toggleDetails()'>
+      {{(!isShowDetails)?'show':'hide'}} detalis</button>
+    <button>del</button>
+  </div>
+  <div *ngIf='isShowDetails'>
+    <p>
       {{todo.description}}
 
-    </div>
-  </li>
+    </p>
+
+  </div>
+
+
+</li>
+<hr>

@@ -10,14 +10,14 @@ export class TodosComponent implements OnInit {
   todoList: Array<Todo>;
   constructor() {
     // this.todoList = todos
-   }
+  }
 
   ngOnInit(): void {
     this.getTodos()
   }
-  getTodos():void{
+  getTodos(): void {
     setTimeout(() => {
-      this.todoList=todos
+      this.todoList = todos
     }, 2000);
   }
 
@@ -32,7 +32,7 @@ const todos = [
   {
     id: 2,
     title: 'js',
-    description: 'test 2',
+    description: '',
     isDone: true
   }
 

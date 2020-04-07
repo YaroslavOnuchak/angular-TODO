@@ -32,7 +32,7 @@ export class HeaderComponent implements OnInit, OnDestroy, OnChanges {
     console.log('hmh');
     this.testOutput.emit('Educational project');
   }
-  addItem(item: string): void {
-    this.arr.push(item)
-  }
+  // addItem(item: string): void {
+  //   this.arr.push(item)
+  // }
 }

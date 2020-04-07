@@ -1,10 +1,12 @@
 <div class="contaiter app-todos ">
+
+  <app-new-todo></app-new-todo>
+
   <ul *ngIf='todoList'>
-    <app-todo-item *ngFor="let item of todoList" [todo]='item'>
-
-
+    <app-todo-item *ngFor="let item of todoList"
+     [todo]='item'>
     </app-todo-item>
-    <!--  -->
+ 
   </ul>
 
   <div class="text-center" *ngIf='!todoList'>
