@@ -1,13 +1,12 @@
 :host {
-   position: absolute;
-   left: 0;
-   right: 0;
-   bottom: 0;
-    background-color: red;
-    min-height: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: red;
+  height: 50px;
+  display: flex;
+  // flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

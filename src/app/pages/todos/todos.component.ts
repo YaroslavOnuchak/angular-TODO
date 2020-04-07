@@ -9,10 +9,16 @@ import { Todo } from 'src/app/core/interfaces';
 export class TodosComponent implements OnInit {
   todoList: Array<Todo>;
   constructor() {
-    this.todoList = todos
+    // this.todoList = todos
    }
 
   ngOnInit(): void {
+    this.getTodos()
+  }
+  getTodos():void{
+    setTimeout(() => {
+      this.todoList=todos
+    }, 2000);
   }
 
 }
