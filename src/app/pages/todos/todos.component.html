@@ -1,25 +1,10 @@
 <div class="contaiter app-todos ">
-
   <ul *ngIf='todoList'>
-    <li *ngFor="let todo of todoList">
-      <h5 [class.is-done]='todo.isDone'>
-        {{todo.title}}
-      </h5>
-      <div>
+    <app-todo-item *ngFor="let item of todoList" [todo]='item'>
 
-        <span class="material-icons">
-          {{(todo.isDone)? 'check_box' : 'check_box_outline_blank'}}
-        </span>
-      </div>
-      <div>
-        <button>show/hide detalis</button>
-        <button>del</button>
-      </div>
-      <div>
-        {{todo.description}}
 
-      </div>
-    </li>
+    </app-todo-item>
+    <!--  -->
   </ul>
 
   <div class="text-center" *ngIf='!todoList'>
