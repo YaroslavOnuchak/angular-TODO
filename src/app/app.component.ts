@@ -7,6 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-TODO';
-  headerT = ' AN'
- 
+  headerT = 'TODO'
+  subname = 'sub name'
+  testOutputApp(data:string):void{
+    this.subname = data
+    console.log(data)
+  }
 }

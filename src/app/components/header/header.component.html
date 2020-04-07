@@ -1,14 +1,29 @@
-<header [ngClass]="{
-  'second':isLoginet,
-  'first': false,
-  'three': true
-}">
-  <h1 [class.secondP]='isLoginet'>{{title}}</h1>
+<header class="container-fluid app-header">
+  <h1 [class.secondP]='isLoginet' class="title">{{title}}</h1>
+  <h2 *ngIf='true'>h2</h2>
   <p [innerHTML]='subName'></p>
+
   <button (click)='logIn($event)' [disabled]='false' [ngStyle]="{
     'font-weight':'bold',
     'background':bgColor,
     'outline': 'none',
    'border':'1px solid #000'
   }"> log in</button>
+
+  <span class="material-icons">
+    {{(isLoginet)? 'alarm': 'alarm_off'}}
+  </span>
+  <button (click)='logIn2()'>logg</button>
+
+  <div [ngSwitch]="'TypeScript'">
+    <p *ngSwitchCase="'Angular'">Angular Course</p>
+    <p *ngSwitchCase="'TypeScript'">TypeScript Course</p>
+    <p *ngSwitchCase="'JavaScript'">JavaScript Course</p>
+    <p *ngSwitchDefault>HTML Course</p>
+  </div>
+
+  <ul>
+    <li *ngFor="let item of arr">{{item}}</li>
+  </ul>
 </header>
+<button (click)='addItem("Js")'>add</button>

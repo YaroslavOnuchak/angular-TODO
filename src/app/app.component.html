@@ -1,4 +1,10 @@
-<app-header [title]="'Angular TODO'+ headerT" [subName]= "'Education' +' '+ '123'"></app-header>
+<app-header
+[title]="'Angular '+ headerT"
+[subName]="subname" 
+(testOutput)="testOutputApp($event)">
+</app-header>
+
+<app-todos></app-todos>
 
 <app-footer>
   <h2>footer</h2>
