@@ -39,6 +39,7 @@ export class NewTodoComponent implements OnInit {
       this.isValid = true;
       return
     }
+    this.isValid = false;
     console.log(this.newTodoForm)
     this.isSubmit = false;
     this.newTodoForm.reset()
