@@ -3,7 +3,7 @@
 
 
     <div>
-      <input type="text" placeholder="Todo title"[ngClass]="(isSubmit)?' is-invalid':''" class="form-control" formControlName='title' required/>
+      <input type="text" placeholder="Todo title"[ngClass]="(isValid)?' is-invalid':''" class="form-control" formControlName='title' required/>
     </div>
     <div *ngIf="isSubmit && newTodoForm.get('title').invalid" class="text-danger">
       <span *ngIf="newTodoForm.get('title').errors.required">Input is required</span>

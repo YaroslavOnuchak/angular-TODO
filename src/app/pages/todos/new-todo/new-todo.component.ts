@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class NewTodoComponent implements OnInit {
   newTodoForm: FormGroup;
   isSubmit = false;
+  isValid = false;
   constructor(
     private fb: FormBuilder
 
@@ -35,6 +36,7 @@ export class NewTodoComponent implements OnInit {
     console.log(this.newTodoForm.value)
     if (this.newTodoForm.invalid) {
       this.isSubmit = true;
+      this.isValid = true;
       return
     }
     console.log(this.newTodoForm)
