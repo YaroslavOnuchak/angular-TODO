@@ -11,7 +11,6 @@ export class TodosComponent implements OnInit {
   constructor() {
     // this.todoList = todos
   }
-
   ngOnInit(): void {
     this.getTodos()
   }

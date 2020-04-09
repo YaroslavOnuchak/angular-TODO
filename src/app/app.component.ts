@@ -6,15 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular-TODO';
-  headerT = 'TODO'
-  subname = 'sub name'
+  title: string;
+  subname = '';
+  headerT = 'TODO';
 
-  save(): void {
-    console.log(this.title)
-  }
+
   testOutputApp(data: string): void {
-    this.subname = data
-    console.log(data)
+    this.subname += data
+
   }
 }

@@ -1,7 +1,9 @@
-<div class="app-new-todo">
-  <form [formGroup]='newTodoForm'>
+<div class="app-new-todo container">
+ <form [formGroup]='newTodoForm' (ngSubmit)='onSubmit()' class="">
+
+
     <div>
-      <input type="text" placeholder="Todo title" class="form-control" formControlName='title'>
+      <input type="text" placeholder="Todo title"[ngClass]="(isSubmit)?' is-invalid':''" class="form-control" formControlName='title' required/>
     </div>
     <div *ngIf="isSubmit && newTodoForm.get('title').invalid" class="text-danger">
       <span *ngIf="newTodoForm.get('title').errors.required">Input is required</span>
@@ -13,7 +15,7 @@
     <span *ngIf="newTodoForm.get('title').errors.minlength">Input min length 3</span>
 </div> -->
     <div>
-      <textarea cols="30" rows="3" type="text" placeholder="Todo Description" class="form-control"
+      <textarea cols="30" rows="3" type="text" placeholder="Todo Description" class="form-control is-invalid"
         formControlName='description'></textarea>
 
     </div>
@@ -21,7 +23,7 @@
       <button class="btn btn-primary" (click)=' onSubmit()' [disabled]='newTodoForm.invalid'>save</button>
     </footer> -->
     <footer>
-      <button class="btn btn-primary" (click)=' onSubmit()'>save</button>
+      <button class="btn btn-primary ml-auto" (click)='onSubmit()'>save</button>
     </footer>
   </form>
 </div>

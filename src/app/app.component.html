@@ -1,14 +1,7 @@
 <app-header [title]="'Angular '+ headerT" [subName]="subname" (testOutput)="testOutputApp($event)">
 </app-header>
 
-<app-todos></app-todos>
-
-<form sameName='ngForm'>
-  <input name="userName" [(ngModel)]="title" #userName='ngModel' />
-  <button (click)="save()">save</button>
-  <pre>{{userName.value}}</pre>
-
-</form>
+<app-todos ></app-todos>
 
 <app-footer>
   <h2>footer</h2>

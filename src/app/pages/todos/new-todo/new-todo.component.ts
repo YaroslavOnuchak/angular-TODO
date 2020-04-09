@@ -15,6 +15,8 @@ export class NewTodoComponent implements OnInit {
   ) { }
   ngOnInit(): void {
     this.createNewTodoForm()
+
+
   }
   private createNewTodoForm(): void {
     this.newTodoForm = this.fb.group({
@@ -30,11 +32,13 @@ export class NewTodoComponent implements OnInit {
 
   }
   onSubmit(): void {
-    this.isSubmit = true;
-    if(this.newTodoForm.invalid){
+    console.log(this.newTodoForm.value)
+    if (this.newTodoForm.invalid) {
+      this.isSubmit = true;
       return
     }
     console.log(this.newTodoForm)
+    this.isSubmit = false;
     this.newTodoForm.reset()
   }
 

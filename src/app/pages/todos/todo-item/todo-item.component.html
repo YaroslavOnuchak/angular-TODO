@@ -1,26 +1,26 @@
-<li>
-  <h5 [class.is-done]='todo.isDone'>
-    {{todo.title}}
-  </h5>
-  <div>
+<li class="row d-flex justify-content-between mt-2">
+  <div class="   m-0 ">
+    <div class="row">
+      <span class="material-icons">
+        {{(todo.isDone)? 'check_box' : 'check_box_outline_blank'}}
+      </span>
+      <h5 [class.is-done]='todo.isDone'>
+        {{todo.title}}
+      </h5>
+    </div>
 
-    <span class="material-icons">
-      {{(todo.isDone)? 'check_box' : 'check_box_outline_blank'}}
-    </span>
+    <div *ngIf='isShowDetails' class="col w-100">
+      <p>
+        {{todo.description}}
+      </p>
+
+    </div>
+
   </div>
   <div>
-    <button [disabled]='!todo.description' (click)='toggleDetails()'>
+    <button [disabled]='!todo.description' (click)='toggleDetails()' class="btn btn-info">
       {{(!isShowDetails)?'show':'hide'}} detalis</button>
-    <button>del</button>
+    <button class="btn btn-outline-danger">del</button>
   </div>
-  <div *ngIf='isShowDetails'>
-    <p>
-      {{todo.description}}
-
-    </p>
-
-  </div>
-
-
 </li>
 <hr>
