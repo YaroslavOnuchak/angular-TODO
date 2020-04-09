@@ -10,6 +10,7 @@ import { Todo } from 'src/app/core/interfaces';
 })
 export class NewTodoComponent implements OnInit {
   @Output() newTodo = new EventEmitter<Todo>()
+
   newTodoForm: FormGroup;
   isSubmit = false;
   isValid = false;
