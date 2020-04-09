@@ -1,12 +1,11 @@
 <div class="container w-50 app-todos">
 
-  <app-new-todo  ></app-new-todo>
+  <app-new-todo (newTodo)='addTodo($event)'></app-new-todo>
 
   <ul *ngIf='todoList' class="p-0">
-    <app-todo-item 
-    *ngFor="let item of todoList"
-   [todo]='item'>
-   <hr>
+    <app-todo-item *ngFor="let item of todoList" [todo]='item' (delete)="deleteTodo($event)"
+      (update)='updateTodo($event)'>
+      <hr>
     </app-todo-item>
 
   </ul>

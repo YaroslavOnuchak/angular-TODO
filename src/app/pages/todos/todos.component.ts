@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from 'src/app/core/interfaces';
+import { TodoService } from 'src/app/core/services/todo/todo.service';
 
 @Component({
   selector: 'app-todos',
@@ -8,31 +9,42 @@ import { Todo } from 'src/app/core/interfaces';
 })
 export class TodosComponent implements OnInit {
   todoList: Array<Todo>;
-  constructor() {
-    // this.todoList = todos
-  }
+
+  constructor(
+    private todoServise: TodoService
+  ) { }
+
   ngOnInit(): void {
     this.getTodos()
   }
-  getTodos(): void {
-    setTimeout(() => {
-      this.todoList = todos
-    }, 2000);
-  }
+ 
+  
+  private getTodos(): void {
+    this.todoServise.getTodoData()
+      .subscribe(data => {
+        console.log(data)
+        this.todoList = data;
+      },
+        error => {
 
+        }
+      )
+  }
+  deleteTodo(todoId: number): void {
+    this.todoServise.deleTodoData(todoId)
+      .subscribe(() => {
+       this.getTodos()
+      });
+    }
+    updateTodo(todo:Todo):void{
+      this.todoServise.updateTodo(todo)
+      .subscribe()
+      
+    }
+    addTodo(todo:Todo):void{
+  this.todoServise.addTodo(todo)
+  .subscribe(() => {
+    this.getTodos()
+   })
 }
-const todos = [
-  {
-    id: 1,
-    title: 'angular',
-    description: 'test1',
-    isDone: false
-  },
-  {
-    id: 2,
-    title: 'js',
-    description: '',
-    isDone: true
-  }
-
-]
+}

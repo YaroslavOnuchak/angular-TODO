@@ -1,7 +1,7 @@
 <li class="row d-flex justify-content-between mt-2">
   <div class="   m-0 ">
     <div class="row">
-      <span class="material-icons">
+      <span class="material-icons" (click)='togleTodo()'>
         {{(todo.isDone)? 'check_box' : 'check_box_outline_blank'}}
       </span>
       <h5 [class.is-done]='todo.isDone'>
@@ -20,7 +20,7 @@
   <div>
     <button [disabled]='!todo.description' (click)='toggleDetails()' class="btn btn-info">
       {{(!isShowDetails)?'show':'hide'}} detalis</button>
-    <button class="btn btn-outline-danger">del</button>
+    <button class="btn btn-outline-danger" (click)="deleteTodo(todo.id)">del</button>
   </div>
 </li>
 <hr>
