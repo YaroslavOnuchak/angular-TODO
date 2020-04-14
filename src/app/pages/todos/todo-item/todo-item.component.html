@@ -6,7 +6,8 @@
         (click)='togleTodo()'>
         {{(todo.isDone)? 'check_box' : 'check_box_outline_blank'}}
       </span>
-      <h5 [class.is-done]='todo.isDone'>
+      <h5 
+      [class.is-done]='todo.isDone' [appHighlight]>
         {{todo.title}}
       </h5>
     </div>

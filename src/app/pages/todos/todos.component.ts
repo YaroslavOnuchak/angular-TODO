@@ -13,6 +13,7 @@ import { takeUntil } from 'rxjs/operators'
 })
 export class TodosComponent implements OnInit, OnDestroy {
   todoList: Array<Todo>;
+  public search: string;
 
   private unsubscribe = new Subject();
 

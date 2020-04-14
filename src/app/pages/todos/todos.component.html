@@ -1,15 +1,23 @@
 <div
   class="container w-50 app-todos">
-
   <app-new-todo
     (newTodo)='addTodo($event)'>
   </app-new-todo>
-
+  <form>
+    <div class="form-group">
+      <input type="text"
+        class="form-control"
+        name="search"
+        placeholder="Search..."
+        autocomplete="off"
+        [(ngModel)]="search" />
+    </div>
+  </form>
   <ul
     class="p-0"
     *ngIf='todoList'>
     <app-todo-item
-      *ngFor="let item of todoList"
+      *ngFor="let item of todoList | filterBySearch:search"
       [todo]='item' (delete)="deleteTodo($event)"
       (update)='updateTodo($event)'>
       <hr>
