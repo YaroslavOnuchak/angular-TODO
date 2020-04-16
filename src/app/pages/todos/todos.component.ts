@@ -1,9 +1,10 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy,TemplateRef  } from '@angular/core';
 import { Todo } from 'src/app/core/interfaces';
 import { TodoService } from 'src/app/core/services/todo/todo.service';
 
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators'
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 
 @Component({
@@ -13,12 +14,14 @@ import { takeUntil } from 'rxjs/operators'
 })
 export class TodosComponent implements OnInit, OnDestroy {
   todoList: Array<Todo>;
+  modalRef: BsModalRef;
   public search: string;
 
   private unsubscribe = new Subject();
 
   constructor(
-    private todoServise: TodoService
+    private todoServise: TodoService,
+    private modalService: BsModalService
   ) { }
 
   ngOnInit(): void {
@@ -29,7 +32,9 @@ export class TodosComponent implements OnInit, OnDestroy {
     this.unsubscribe.complete();
   }
 
-
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
+  }
   private getTodos(): void {
     this.todoServise.getTodoData()
       .subscribe(data => {

@@ -4,25 +4,11 @@
   (testOutput)="testOutputApp($event)">
 </app-header>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <ul class="navbar-nav">
-    <li class="nav-item"
-      routerLinkActive="active">
-      <a class="nav-link"
-        routerLink="todos">Todos</a>
-    </li>
-    <li class="nav-item"
-      routerLinkActive="active">
-      <a class="nav-link"
-        routerLink="about">About</a>
-    </li>
-  </ul>
-</nav>
 
-
+<app-nav></app-nav>
+<app-main></app-main>
 <!-- <app-todos></app-todos> -->
-<router-outlet [ngStyle]="{ 'flex': '1 0 auto'}"></router-outlet>
 
 <app-footer class="bg-primary">
-  <h2>footer</h2>
+  <h2>Footer</h2>
 </app-footer>
