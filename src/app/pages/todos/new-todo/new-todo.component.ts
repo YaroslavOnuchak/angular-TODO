@@ -13,7 +13,7 @@ export class NewTodoComponent implements OnInit {
 
   newTodoForm: FormGroup;
   isSubmit = false;
-  isValid = false;
+
   constructor(
     private fb: FormBuilder
 
@@ -31,22 +31,29 @@ export class NewTodoComponent implements OnInit {
         ]
       ],
       description: [''],
-      isDone: [false]
+      isDone: [false],
+      priority: [
+        '',
+        [
+          Validators.required,
+        ]
+      ]
     })
 
   }
   onSubmit(): void {
-    console.log(this.newTodoForm.value)
+    // console.log(this.newTodoForm.value)
+
     if (this.newTodoForm.invalid) {
       this.isSubmit = true;
-      this.isValid = true;
+
       return
     }
     this.newTodo.emit(this.newTodoForm.value)
-    this.isValid = false;
     console.log("form new-too", this.newTodoForm)
     this.isSubmit = false;
     this.newTodoForm.reset()
+    this.newTodoForm.get('title').errors.minlength = {};
   }
 
 }

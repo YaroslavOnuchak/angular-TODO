@@ -4,19 +4,15 @@
       "title": "javascript",
       "description": "",
       "isDone": false,
+      "priority": "low",
       "id": 1
     },
     {
-      "title": "ts ",
-      "description": "ts's cool",
-      "isDone": null,
-      "id": 2
-    },
-    {
-      "title": "jyt",
-      "description": "jyt",
+      "title": "dsv",
+      "description": "vvsd",
       "isDone": false,
-      "id": 3
+      "priority": "hight",
+      "id": 2
     }
   ]
 }

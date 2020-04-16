@@ -1,0 +1,22 @@
+
+.low .custom-control-label::before {
+    border:2px solid green;
+  }
+  .low #customRadioInline1:checked+ .custom-control-label::before {
+    background-color:  green;
+    box-shadow: 0 0 green;
+  }
+  .medium .custom-control-label::before {
+    border:2px solid  yellow;
+  }
+  .medium #customRadioInline2:checked + .custom-control-label::before {
+    background-color:  yellow;
+    box-shadow: 0 0 yellow
+  }
+  .hight .custom-control-label::before {
+  border:2px solid  red;
+            }
+  .hight #customRadioInline3:checked + .custom-control-label::before {
+    background-color:  red;
+    box-shadow: 0 0 red;
+  }

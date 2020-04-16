@@ -16,6 +16,7 @@
   <ul
     class="p-0"
     *ngIf='todoList'>
+    
     <app-todo-item
       *ngFor="let item of todoList | filterBySearch:search"
       [todo]='item' (delete)="deleteTodo($event)"
