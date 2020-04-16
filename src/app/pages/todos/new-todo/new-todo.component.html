@@ -4,13 +4,13 @@
     (ngSubmit)='onSubmit()'>
 
 
-    <div>
+    <div class="titlewrap">
       <input type="text" placeholder="Todo title"
         class="form-control"
         formControlName='title' required />
     </div>
     <div *ngIf="!isSubmit && newTodoForm.get('title').invalid" class="text-danger">
-      <span *ngIf="newTodoForm.get('title').errors.required &&  newTodoForm.get('title').touched">Input is
+      <span *ngIf="newTodoForm.get('title').errors.required">Input is
         required</span>
       <span *ngIf="newTodoForm.controls['title'].errors.minlength">Input min length 3</span>
     </div>

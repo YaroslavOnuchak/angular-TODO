@@ -34,26 +34,21 @@ export class NewTodoComponent implements OnInit {
       isDone: [false],
       priority: [
         '',
-        [
-          Validators.required,
-        ]
+        Validators.required
       ]
     })
 
   }
   onSubmit(): void {
     // console.log(this.newTodoForm.value)
-
     if (this.newTodoForm.invalid) {
       this.isSubmit = true;
-
       return
     }
     this.newTodo.emit(this.newTodoForm.value)
     console.log("form new-too", this.newTodoForm)
     this.isSubmit = false;
     this.newTodoForm.reset()
-    this.newTodoForm.get('title').errors.minlength = {};
-  }
 
+  }
 }
