@@ -6,9 +6,10 @@
         (click)='togleTodo()'>
         {{(todo.isDone)? 'check_box' : 'check_box_outline_blank'}}
       </span>
-      <h5 
-      [class.is-done]='todo.isDone' [appHighlight]>
-        {{todo.title}}
+      <h5
+        [class.is-done]='todo.isDone' [appHighlight]="'red'">
+        {{todo.title}} <span class="badge badge-pill " [ngClass]="bgColorBadges[todo.priority]">
+          {{todo.priority}}</span>
       </h5>
     </div>
     <div class="col w-100"

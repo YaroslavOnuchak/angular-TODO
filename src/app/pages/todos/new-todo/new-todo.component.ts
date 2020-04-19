@@ -15,6 +15,7 @@ export class NewTodoComponent implements OnInit {
   isSubmit = false;
 
   constructor(
+    
     private fb: FormBuilder
 
   ) { }
@@ -45,6 +46,7 @@ export class NewTodoComponent implements OnInit {
       this.isSubmit = true;
       return
     }
+
     this.newTodo.emit(this.newTodoForm.value)
     console.log("form new-too", this.newTodoForm)
     this.isSubmit = false;

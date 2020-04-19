@@ -1,5 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
-body{
-    font-family: 'Open Sans', sans-serif;
-   
+@mixin radio($color) {
+  border: 2px solid $color;
+}
+@mixin radioCheck($color) {
+  background-color:  $color;
+  box-shadow: 0 0  $color;
+  border-color:  $color;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+.low .custom-control-label::before {
+@include radio(green);
+}
+.low input:checked + .custom-control-label::before {
+@include radioCheck(green);
+}
+.medium .custom-control-label::before {
+  @include radio(yellow);
+}
+.medium input:checked + .custom-control-label::before {
+  @include radioCheck(yellow)
+}
+.hight .custom-control-label::before {
+  @include radio(red);
+}
+.hight input:checked + .custom-control-label::before {
+  @include radioCheck(red);
+}
+.all .custom-control-label::before {
+  @include radio(#000);
+}
+.all input:checked + .custom-control-label::before {
+  @include radioCheck(#000);
 }

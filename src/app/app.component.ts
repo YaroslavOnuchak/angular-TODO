@@ -7,12 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title: string;
-  subname = '';
+  subname: string;
   headerT = 'TODO';
 
 
   testOutputApp(data: string): void {
-    this.subname += data
+    this.subname = data
 
   }
 }

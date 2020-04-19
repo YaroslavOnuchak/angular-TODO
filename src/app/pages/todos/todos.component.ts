@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy,TemplateRef  } from '@angular/core';
+import { Component, OnInit, OnDestroy, TemplateRef } from '@angular/core';
 import { Todo } from 'src/app/core/interfaces';
 import { TodoService } from 'src/app/core/services/todo/todo.service';
 
@@ -16,6 +16,7 @@ export class TodosComponent implements OnInit, OnDestroy {
   todoList: Array<Todo>;
   modalRef: BsModalRef;
   public search: string;
+  public radioS: string;
 
   private unsubscribe = new Subject();
 
@@ -36,7 +37,7 @@ export class TodosComponent implements OnInit, OnDestroy {
     this.modalRef = this.modalService.show(template);
   }
   private getTodos(): void {
-    this.todoServise.getTodoData()
+    this.todoServise.getTodos()
       .subscribe(data => {
         console.log(data)
         this.todoList = data;
@@ -45,7 +46,7 @@ export class TodosComponent implements OnInit, OnDestroy {
       )
   }
   deleteTodo(todoId: number): void {
-    this.todoServise.deleTodoData(todoId)
+    this.todoServise.delTodo(todoId)
       .pipe(takeUntil(this.unsubscribe))
       .subscribe(() => {
         this.getTodos()
@@ -58,7 +59,6 @@ export class TodosComponent implements OnInit, OnDestroy {
 
   }
   async addTodo(todo: Todo): Promise<void> {
-
     const res = await this.todoServise.addTodo(todo)
       .toPromise();
     this.getTodos()

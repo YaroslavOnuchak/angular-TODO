@@ -14,10 +14,10 @@ export class TodoService {
     private http: HttpClient
   ) { }
 
-  getTodoData(): Observable<Array<Todo>> {
+  getTodos(): Observable<Array<Todo>> {
     return this.http.get<Array<Todo>>(`${this.url}`)
   }
-  deleTodoData(todoId: number): Observable<Array<Todo>> {
+  delTodo(todoId: number): Observable<Array<Todo>> {
     return this.http.delete<any>(`${this.url}/${todoId}`)
   }
   updateTodo(todo: Todo) {

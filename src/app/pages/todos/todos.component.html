@@ -5,12 +5,55 @@
   </app-new-todo>
   <form>
     <div class="form-group">
-      <input type="text"
+      <input
+        type="text"
         class="form-control"
         name="search"
         placeholder="Search..."
         autocomplete="off"
         [(ngModel)]="search" />
+    </div>
+
+  </form>
+  <form>
+    <div class="radio-wrap">
+      <div class="custom-control custom-radio custom-control-inline low">
+        <input class="custom-control-input"
+          type="radio"
+          id="radioInline1"
+          name="searchPriority"
+          [(ngModel)]="radioS"
+          value="low" />
+        <label class="custom-control-label" for="radioInline1">Low</label>
+      </div>
+      <div class="custom-control custom-radio custom-control-inline medium">
+        <input class="custom-control-input"
+          type="radio"
+          id="radioInline2"
+          name="searchPriority"
+          [(ngModel)]="radioS"
+          value="medium" />
+        <label class="custom-control-label" for="radioInline2">Medium</label>
+      </div>
+      <div class="custom-control custom-radio custom-control-inline hight">
+        <input class="custom-control-input"
+          type="radio"
+          id="radioInline3"
+          name="searchPriority"
+          [(ngModel)]="radioS"
+          value="hight" />
+        <label class="custom-control-label" for="radioInline3">Hight</label>
+      </div>
+      <div class="custom-control custom-radio custom-control-inline all">
+        <input
+          type="radio"
+          id="radioInline4"
+          name="searchPriority"
+          class="custom-control-input"
+          [(ngModel)]="radioS"
+          value="all" />
+        <label class="custom-control-label" for="radioInline4">All</label>
+      </div>
     </div>
   </form>
   <button type="button" class="btn btn-primary" (click)="openModal(Mtemplate)">Create template modal</button>
@@ -20,9 +63,10 @@
     *ngIf='todoList'>
 
     <app-todo-item
-      *ngFor="let item of todoList | filterBySearch:search"
-      [todo]='item' (delete)="deleteTodo($event)"
-      (update)='updateTodo($event)'>
+      *ngFor="let item of todoList | filterBySearch:search | filterByRadio:radioS"
+      [todo]='item'
+      (delete)="deleteTodo($event)"
+      (updata)='updateTodo($event)'>
       <hr>
     </app-todo-item>
   </ul>

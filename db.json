@@ -3,44 +3,23 @@
     {
       "title": "javascript",
       "description": "",
-      "isDone": false,
+      "isDone": true,
       "priority": "low",
       "id": 1
     },
     {
-      "title": "hghn",
-      "description": "hhnfngf",
+      "title": "SCSS",
+      "description": "CSS",
       "isDone": false,
-      "priority": "medium",
-      "id": 2
-    },
-    {
-      "title": "gfn",
-      "description": "ngfnfgf",
-      "isDone": false,
-      "priority": "low",
+      "priority": "hight",
       "id": 3
     },
     {
-      "title": "bdfb",
-      "description": "bfdbfd",
-      "isDone": false,
-      "priority": "low",
+      "title": "svg",
+      "description": "paint",
+      "isDone": null,
+      "priority": "medium",
       "id": 4
-    },
-    {
-      "title": "bnngf",
-      "description": "ngfngf",
-      "isDone": false,
-      "priority": "low",
-      "id": 5
-    },
-    {
-      "title": "ngf",
-      "description": "ngf",
-      "isDone": false,
-      "priority": "hight",
-      "id": 6
     }
   ]
 }
