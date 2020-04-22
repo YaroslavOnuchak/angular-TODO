@@ -17,11 +17,12 @@ const routes: Routes = [
     path: 'about', component: AboutComponent,
     children: [
       { path: '', redirectTo: 'about-project', pathMatch: 'full' },
-      { path: 'user', component: UserComponent },
       { path: 'about-us', component: AboutUsComponent },
-      { path: 'project', component: AboutProjectComponent }
+      { path: 'project', component: AboutProjectComponent },
+      { path: 'user/:userId', component: UserComponent }
     ]
-  }
+  },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
