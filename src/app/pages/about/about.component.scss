@@ -1,0 +1,20 @@
+nav{
+    border-right: 2px solid rgba(16, 51, 59, 0.666);
+
+    .active {
+       
+        a{
+
+            color: red;
+            text-shadow:  0 0 2px red;
+        }
+     }
+     a{
+         color:gray;
+         padding: 12px 6px;
+         &:hover{
+            text-shadow:  0 0 1px grey; 
+         }
+      
+     }
+}

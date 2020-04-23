@@ -12,14 +12,13 @@ import { AboutProjectComponent } from './pages/about/about-project/about-project
 const routes: Routes = [
   { path: '', redirectTo: 'todos', pathMatch: 'full' },
   { path: 'todos', component: TodosComponent },
-  { path: 'nf', component: PageNotFoundComponent },
   {
     path: 'about', component: AboutComponent,
     children: [
       { path: '', redirectTo: 'about-project', pathMatch: 'full' },
       { path: 'about-us', component: AboutUsComponent },
-      { path: 'project', component: AboutProjectComponent },
-      { path: 'user/:userId', component: UserComponent }
+      { path: 'about-project', component: AboutProjectComponent },
+      { path: 'about-us/:userId', component: UserComponent }
     ]
   },
   { path: '**', component: PageNotFoundComponent }
