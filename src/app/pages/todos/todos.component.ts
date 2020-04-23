@@ -56,7 +56,6 @@ export class TodosComponent implements OnInit, OnDestroy {
     this.todoServise.updateTodo(todo)
       .pipe(takeUntil(this.unsubscribe))
       .subscribe()
-
   }
   async addTodo(todo: Todo): Promise<void> {
     const res = await this.todoServise.addTodo(todo)

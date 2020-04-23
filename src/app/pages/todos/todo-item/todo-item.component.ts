@@ -21,9 +21,7 @@ export class TodoItemComponent implements OnInit {
 
   isShowDetails = false;
 
-  constructor(
-
-  ) { }
+  constructor(  ) { }
 
   ngOnInit(): void {
   }

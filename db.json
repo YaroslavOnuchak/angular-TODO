@@ -21,5 +21,67 @@
       "priority": "medium",
       "id": 4
     }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": {
+        "title": "Mr",
+        "first": "Harry",
+        "last": "Mason"
+      },
+      "picture": "https://randomuser.me/api/portraits/men/62.jpg",
+      "email": "harry.mason@example.com",
+      "phone": "(514)-801-8912",
+      "description": "Globally reinvent an expanded array of sources after global internal or 'organic' sources. Compellingly create real-time interfaces via end-to-end methods of empowerment. Efficiently exploit intermandated."
+    },
+    {
+      "id": 2,
+      "name": {
+        "title": "Miss",
+        "first": "Hannah",
+        "last": "Harcourt"
+      },
+      "picture": "https://randomuser.me/api/portraits/women/32.jpg",
+      "email": "hannah.harcourt@example.com",
+      "phone": "558-913-6447",
+      "description": "Globally reinvent an expanded array of sources after global internal or 'organic' sources. Compellingly create real-time interfaces via end-to-end methods of empowerment. Efficiently exploit intermandated."
+    },
+    {
+      "id": 3,
+      "name": {
+        "title": "Mr",
+        "first": "عباس",
+        "last": "مرادی"
+      },
+      "picture": "https://randomuser.me/api/portraits/men/76.jpg",
+      "email": "hannah.harcourt@example.com",
+      "phone": "558-913-6447",
+      "description": "Globally reinvent an expanded array of sources after global internal or 'organic' sources. Compellingly create real-time interfaces via end-to-end methods of empowerment. Efficiently exploit intermandated."
+    },
+    {
+      "id": 4,
+      "name": {
+        "title": "Miss",
+        " first": "Benedita",
+        "last": "Moraes"
+      },
+      "picture": "https://randomuser.me/api/portraits/women/29.jpg",
+      "email": "hannah.harcourt@example.com",
+      "phone": "558-913-6447",
+      "description": "Globally reinvent an expanded array of sources after global internal or 'organic' sources. Compellingly create real-time interfaces via end-to-end methods of empowerment. Efficiently exploit intermandated."
+    },
+    {
+      "id": 5,
+      "name": {
+        " title": "Ms",
+        "first": "Eevi",
+        " last": "Kilpela"
+      },
+      "picture": "https://randomuser.me/api/portraits/women/93.jpg",
+      "email": "hannah.harcourt@example.com",
+      "phone": "558-913-6447",
+      "description": "Globally reinvent an expanded array of sources after global internal or 'organic' sources. Compellingly create real-time interfaces via end-to-end methods of empowerment. Efficiently exploit intermandated."
+    }
   ]
 }

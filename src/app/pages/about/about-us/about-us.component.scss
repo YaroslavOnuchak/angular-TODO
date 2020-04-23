@@ -1,6 +1,15 @@
-.card{
-    max-width: 240px;
-    margin: 12px 6px;
-    padding: 6px;
-    box-shadow:0 0 5px grey;
+.card {
+    max-width : 250px;
+    margin    : 12px 0;
+    padding   : 6px;
+    box-shadow: 0 0 5px grey;
+
+    p {
+        display           : -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        text-overflow     : ellipsis;
+        overflow          : hidden;
+
+    }
 }

@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { UserService } from 'src/app/core/services/user/user.service';
+import { UserInterface } from 'src/app/core/interfaces';
 
 @Component({
   selector: 'app-user',
@@ -10,12 +12,14 @@ import { takeUntil } from 'rxjs/operators';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit, OnDestroy {
-  userId: number;
+  user: Array<UserInterface>;
+
 
   private unsubscribe = new Subject();
 
   constructor(
-    private activRoute: ActivatedRoute
+    private activRoute: ActivatedRoute,
+    private userService: UserService
   ) { }
   ngOnDestroy(): void {
     this.unsubscribe.next();
@@ -23,6 +27,7 @@ export class UserComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    console.log('this user+++', this.user)
     this.getUserId();
   }
   private getUserId(): void {
@@ -30,10 +35,19 @@ export class UserComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.unsubscribe))
       .subscribe(
         params => {
-          console.log(params);
-          this.userId = params.userId
+          this.getUser(params.userId)
+
         });
   }
-
+  private getUser(userId: number): void {
+    this.userService.getUser(userId)
+      .pipe(takeUntil(this.unsubscribe))
+      .subscribe((data) => {
+        this.user = data;
+        console.log('getUser userId: number', data)
+        console.log('this user', this.user)
+        // console.log('this user', this.user.picture)
+      })
+  }
 
 }
