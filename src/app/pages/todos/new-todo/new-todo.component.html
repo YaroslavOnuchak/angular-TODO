@@ -1,70 +1,82 @@
-<div class="app-new-todo container">
-  <form [formGroup]="newTodoForm" (ngSubmit)="onSubmit()">
-    <div class="titlewrap">
-      <input type="text"
-        placeholder="Todo title"
-        class="form-control"
-        formControlName="title"
-        [ngClass]="
+<div class="modal-header">
+  <h4 class="modal-title pull-left">{{(titleTodo)? "New" : "Edit"}} TODO</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="hideModal()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="app-new-todo">
+    <form
+      [formGroup]="newTodoForm"
+      (ngSubmit)="onSubmit()">
+      <div class="my-1 titlewrap">
+        <input type="text"
+          placeholder="Todo title"
+          class="form-control"
+          formControlName="title"
+          [ngClass]="
           newTodoForm.get('title').invalid && 
-          newTodoForm.get('title').touched
+          (newTodoForm.get('title').touched || !newTodoForm.get('title').touched)
             ? 'is-invalid' : ''" />
-    </div>
-    <div *ngIf="
+      </div>
+      <div *ngIf="
         newTodoForm.get('title').invalid &&
         (newTodoForm.get('title').dirty || newTodoForm.get('title').touched)
       " class="text-danger">
-      <span *ngIf="newTodoForm.get('title').errors.required">Input is required.</span>
-      <span *ngIf="newTodoForm.get('title').errors.minlength">Input min length 3 symbols.</span>
-    </div>
+        <span *ngIf="newTodoForm.get('title').errors.required || !newTodoForm.get('title').touched">Input is
+          required.</span>
+        <span *ngIf="newTodoForm.get('title').errors.minlength">Input min length 3 symbols.</span>
+      </div>
+      <div>
+        <textarea
+          cols="30"
+          rows="3"
+          type="text"
+          placeholder="Todo Description"
+          class="form-control"
+          formControlName="description"></textarea>
+      </div>
+      <div class="radio-wrap">
+        <div class="custom-control custom-radio custom-control-inline low">
+          <input
+            type="radio"
+            id="customRadioInline1"
+            name="priority"
+            class="custom-control-input"
+            formControlName="priority"
+            value="low" />
+          <label class="custom-control-label" for="customRadioInline1">Low</label>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline medium">
+          <input
+            type="radio"
+            id="customRadioInline2"
+            name="priority"
+            class="custom-control-input"
+            formControlName="priority"
+            value="medium" />
+          <label class="custom-control-label" for="customRadioInline2">Medium</label>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline hight">
+          <input
+            type="radio"
+            id="customRadioInline3"
+            name="priority"
+            class="custom-control-input"
+            formControlName="priority"
+            value="hight" />
+          <label class="custom-control-label" for="customRadioInline3">Hight</label>
+        </div>
+      </div>
+      <div *ngIf="!newTodoForm.get('priority').dirty   && newTodoForm.get('priority').errors?.required"
+        class="text-danger">
 
-    <div>
-      <textarea
-        cols="30"
-        rows="3"
-        type="text"
-        placeholder="Todo Description"
-        class="form-control"
-        formControlName="description"></textarea>
-    </div>
-    <div class="radio-wrap">
-      <div class="custom-control custom-radio custom-control-inline low">
-        <input
-          type="radio"
-          id="customRadioInline1"
-          name="priority"
-          class="custom-control-input"
-          formControlName="priority"
-          value="low" />
-        <label class="custom-control-label" for="customRadioInline1">Low</label>
+        <span>radio is required</span>
       </div>
-      <div class="custom-control custom-radio custom-control-inline medium">
-        <input
-          type="radio"
-          id="customRadioInline2"
-          name="priority"
-          class="custom-control-input"
-          formControlName="priority"
-          value="medium" />
-        <label class="custom-control-label" for="customRadioInline2">Medium</label>
-      </div>
-      <div class="custom-control custom-radio custom-control-inline hight">
-        <input
-          type="radio"
-          id="customRadioInline3"
-          name="priority"
-          class="custom-control-input"
-          formControlName="priority"
-          value="hight" />
-        <label class="custom-control-label" for="customRadioInline3">Hight</label>
-      </div>
-    </div>
-    <div *ngIf="!newTodoForm.get('priority').dirty" class="text-danger">
-      <span>radio is required</span>
-    </div>
 
-    <footer class="d-flex">
-      <button class="btn btn-primary ml-auto" (click)="onSubmit()">save</button>
-    </footer>
-  </form>
+      <footer class="d-flex">
+        <button class="btn btn-primary ml-auto" (click)="onSubmit()">save</button>
+      </footer>
+    </form>
+  </div>
 </div>

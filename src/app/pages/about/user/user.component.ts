@@ -12,7 +12,7 @@ import { UserInterface } from 'src/app/core/interfaces';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit, OnDestroy {
-  user: Array<UserInterface>;
+  user: UserInterface;
 
 
   private unsubscribe = new Subject();
@@ -46,7 +46,7 @@ export class UserComponent implements OnInit, OnDestroy {
         this.user = data;
         console.log('getUser userId: number', data)
         console.log('this user', this.user)
-        // console.log('this user', this.user.picture)
+        // console.log('this user.pict', this.user.picture)
       })
   }
 

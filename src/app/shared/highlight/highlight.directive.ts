@@ -13,14 +13,16 @@ export class HighlightDirective {
   }
   @HostListener('mouseenter') onMuseEnter() {
     // this.el.nativeElement.style.backgroundColor = 'yellow';
-    this.highlight(this.highlightColor || 'yellow');
+    this.highlight(this.highlightColor || "yellow")
   }
   @HostListener('mouseleave') onMouseLeave() {
-    this.el.nativeElement.style.backgroundColor = null;
+    this.el.nativeElement.style.textShadow = null;
+
 
   }
   private highlight(color: string) {
-    this.el.nativeElement.style.backgroundColor = color;
+    this.el.nativeElement.style.textShadow = `0 2px 5px ${color}`;
+
   }
 
 }

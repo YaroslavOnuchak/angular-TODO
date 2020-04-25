@@ -5,6 +5,8 @@ import { TodoService } from 'src/app/core/services/todo/todo.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators'
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { NewTodoComponent } from './new-todo/new-todo.component';
+import { FormGroup } from '@angular/forms';
 
 
 @Component({
@@ -14,9 +16,15 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 })
 export class TodosComponent implements OnInit, OnDestroy {
   todoList: Array<Todo>;
+  todoData: Todo;
   modalRef: BsModalRef;
+  titleTodo: boolean;
+  setModal: object;
+
+
   public search: string;
   public radioS: string;
+
 
   private unsubscribe = new Subject();
 
@@ -33,8 +41,40 @@ export class TodosComponent implements OnInit, OnDestroy {
     this.unsubscribe.complete();
   }
 
-  openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template);
+  openModal(todo?: Todo): void {
+    if (todo) {
+      this.titleTodo = false;
+      this.todoData = todo;
+      this.modalRef = this.modalService.show(
+        NewTodoComponent,
+        Object.assign({}, {
+          ignoreBackdropClick: true,
+          initialState: {
+            titleTodo: this.titleTodo,
+            modalData: this.todoData,
+            submit: this.updateTodo.bind(this)
+          }
+        })
+      );
+
+
+    } else {
+      this.titleTodo = true;
+      this.todoData = null;
+      this.modalRef = this.modalService.show(
+        NewTodoComponent,
+        Object.assign({}, {
+          ignoreBackdropClick: true,
+          initialState: {
+            titleTodo: this.titleTodo,
+            modalData: this.todoData,
+            submit: this.addTodo.bind(this)
+          }
+        })
+      );
+
+    }
+
   }
   private getTodos(): void {
     this.todoServise.getTodos()
@@ -55,7 +95,9 @@ export class TodosComponent implements OnInit, OnDestroy {
   updateTodo(todo: Todo): void {
     this.todoServise.updateTodo(todo)
       .pipe(takeUntil(this.unsubscribe))
-      .subscribe()
+      .subscribe(() => {
+        this.getTodos()
+      })
   }
   async addTodo(todo: Todo): Promise<void> {
     const res = await this.todoServise.addTodo(todo)

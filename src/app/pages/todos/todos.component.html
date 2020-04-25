@@ -1,63 +1,66 @@
-<div
-  class="container w-50 app-todos">
-  <app-new-todo
+<div class="container  app-todos">
+  <!-- <app-new-todo
     (newTodo)='addTodo($event)'>
-  </app-new-todo>
-  <form>
-    <div class="form-group">
-      <input
-        type="text"
-        class="form-control"
-        name="search"
-        placeholder="Search..."
-        autocomplete="off"
-        [(ngModel)]="search" />
-    </div>
+  </app-new-todo> -->
+  <div class="btn-wrap d-flex justify-content-end my-1">
+    <button type="button" class="btn btn-primary   createBtn" (click)="openModal()">Create New
+      TODO</button>
+  </div>
 
-  </form>
-  <form>
-    <div class="radio-wrap">
-      <div class="custom-control custom-radio custom-control-inline low">
-        <input class="custom-control-input"
-          type="radio"
-          id="radioInline1"
-          name="searchPriority"
-          [(ngModel)]="radioS"
-          value="low" />
-        <label class="custom-control-label" for="radioInline1">Low</label>
-      </div>
-      <div class="custom-control custom-radio custom-control-inline medium">
-        <input class="custom-control-input"
-          type="radio"
-          id="radioInline2"
-          name="searchPriority"
-          [(ngModel)]="radioS"
-          value="medium" />
-        <label class="custom-control-label" for="radioInline2">Medium</label>
-      </div>
-      <div class="custom-control custom-radio custom-control-inline hight">
-        <input class="custom-control-input"
-          type="radio"
-          id="radioInline3"
-          name="searchPriority"
-          [(ngModel)]="radioS"
-          value="hight" />
-        <label class="custom-control-label" for="radioInline3">Hight</label>
-      </div>
-      <div class="custom-control custom-radio custom-control-inline all">
+  <div class="row justify-content-between">
+    <form class="col">
+      <div class="form-group">
         <input
-          type="radio"
-          id="radioInline4"
-          name="searchPriority"
-          class="custom-control-input"
-          [(ngModel)]="radioS"
-          value="all" />
-        <label class="custom-control-label" for="radioInline4">All</label>
+          type="text"
+          class="form-control"
+          name="search"
+          placeholder="Search..."
+          autocomplete="off"
+          [(ngModel)]="search" />
       </div>
-    </div>
-  </form>
-  <button type="button" class="btn btn-primary" (click)="openModal(Mtemplate)">Create template modal</button>
-
+    </form>
+    <form class="col">
+      <div class="radio-wrap">
+        <div class="custom-control custom-radio custom-control-inline low">
+          <input class="custom-control-input"
+            type="radio"
+            id="radioInline1"
+            name="searchPriority"
+            [(ngModel)]="radioS"
+            value="low" />
+          <label class="custom-control-label" for="radioInline1">Low</label>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline medium">
+          <input class="custom-control-input"
+            type="radio"
+            id="radioInline2"
+            name="searchPriority"
+            [(ngModel)]="radioS"
+            value="medium" />
+          <label class="custom-control-label" for="radioInline2">Medium</label>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline hight">
+          <input class="custom-control-input"
+            type="radio"
+            id="radioInline3"
+            name="searchPriority"
+            [(ngModel)]="radioS"
+            value="hight" />
+          <label class="custom-control-label" for="radioInline3">Hight</label>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline all">
+          <input
+            type="radio"
+            id="radioInline4"
+            name="searchPriority"
+            class="custom-control-input"
+            [(ngModel)]="radioS"
+            value="all" />
+          <label class="custom-control-label" for="radioInline4">All</label>
+        </div>
+      </div>
+    </form>
+  </div>
   <ul
     class="p-0"
     *ngIf='todoList'>
@@ -66,9 +69,11 @@
       *ngFor="let item of todoList | filterBySearch:search | filterByRadio:radioS"
       [todo]='item'
       (delete)="deleteTodo($event)"
+      (edit)="openModal($event)"
       (updata)='updateTodo($event)'>
       <hr>
     </app-todo-item>
+
   </ul>
   <div
     class="text-center"
@@ -76,15 +81,3 @@
     {{(!todoList)?  "no data": "todoList is empty"}}
   </div>
 </div>
-
-<ng-template #Mtemplate>
-  <div class="modal-header">
-    <h4 class="modal-title pull-left">Modal</h4>
-    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    This is a modal.
-  </div>
-</ng-template>

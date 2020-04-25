@@ -12,6 +12,7 @@ export class TodoItemComponent implements OnInit {
   @Input() todo: Todo;
   @Output() delete = new EventEmitter<number>();
   @Output() updata = new EventEmitter<Todo>();
+  @Output() edit = new EventEmitter<Todo>();
 
   public bgColorBadges = {
     'low': 'badge-success',
@@ -21,7 +22,7 @@ export class TodoItemComponent implements OnInit {
 
   isShowDetails = false;
 
-  constructor(  ) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
@@ -35,6 +36,9 @@ export class TodoItemComponent implements OnInit {
     this.todo.isDone = !this.todo.isDone;
     this.updata.emit(this.todo);
   }
-
+  openModalEdit(todo: Todo): void {
+    console.log('item', todo)
+    this.edit.emit(todo)
+  }
 
 }

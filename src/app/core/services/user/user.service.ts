@@ -15,8 +15,8 @@ export class UserService {
   getUsers(): Observable<Array<UserInterface>> {
     return this.http.get<Array<UserInterface>>(`${this.url}`)
   }
-  getUser(userId: number): Observable<Array<UserInterface>> {
-    return this.http.get<Array<UserInterface>>(`${this.url}/${userId}`)
+  getUser(userId: number): Observable<UserInterface> {
+    return this.http.get<UserInterface>(`${this.url}/${userId}`)
   }
 }
 
